@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Янковский Артем</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ─── Hero ──────────────────────────────────────── -->
+  <section id="hero">
+    <div class="container">
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-title">bash — 80×24</span>
+        </div>
+        <div class="terminal-body">
+          <div class="prompt-line">
+            <span class="prompt-user">artem@yankovskiy</span>
+            <span class="prompt-sep">:</span>
+            <span class="prompt-path">~</span>
+            <span class="prompt-char">$&nbsp;</span>
+            <span id="typewriter"></span>
+            <span class="cursor"></span>
+          </div>
+
+          <div class="hero-output" id="hero-output" style="display:none;">
+            <div class="hero-name">Янковский Артем</div>
+            <div class="hero-role">Тимлид · Группа сопровождения платформенных сервисов мониторинга</div>
+            <div class="hero-meta">
+              <span>Сбербанк</span>
+              <span>команда: 8 человек</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── About ─────────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-title">cat about.txt</span>
+      </div>
+      <div class="about-text">
+        <p class="comment"># по должности — инженер по эксплуатации</p>
+        <p>Занимаюсь сопровождением инфраструктуры мониторинга. Когда стандартных инструментов не хватает — пишу код. В свободное время, без постановки задачи, просто потому что интересно.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Projects ──────────────────────────────────── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-title">ls projects/</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-card-title">gproxy</span>
+            <span class="project-tag">Python · FastAPI</span>
+            <span class="project-tag">// private</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-desc">
+              Единый datasource для Grafana поверх распределённой инфраструктуры Zabbix.
+              Реализует Zabbix JSON-RPC API и агрегирует данные из нескольких кластеров
+              через виртуальные (packed) идентификаторы — Grafana видит их как один источник.
+            </p>
+            <ul class="project-features">
+              <li>Прозрачная агрегация нескольких кластеров Zabbix</li>
+              <li>Виртуальные packed ID для хостов, метрик и триггеров</li>
+              <li>Собственный слой аутентификации и кэширования</li>
+              <li>Self-monitoring через отдельный микросервис</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-card-title">Zabbix EE</span>
+            <span class="project-tag">C · PHP</span>
+            <span class="project-tag">// private</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-desc">
+              Fork Zabbix с расширениями для production-среды.
+              Появился как just&nbsp;for&nbsp;fun, но принёс конкретную пользу в эксплуатации.
+            </p>
+            <ul class="project-features">
+              <li>Лимит кэша истории/трендов: 2 ГБ → 4 ГБ</li>
+              <li>Runtime-команды без перезапуска (LLD pause/resume, history clear)</li>
+              <li>Фильтрация PAN-данных по алгоритму Луна (PCI DSS)</li>
+              <li>PostgreSQL кластер с автофейловером</li>
+              <li>Query tagging: пользователь Zabbix виден в pg_stat_activity</li>
+              <li>DiagInfo: веб-интерфейс runtime-диагностики сервера через trapper-протокол</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-card-title">dump-analyser</span>
+            <span class="project-tag">Python · objdump</span>
+            <span class="project-tag">// private</span>
+          </div>
+          <div class="project-card-body">
+            <p class="project-desc">
+              Инструмент для анализа крэшей Zabbix-сервера без вендорской поддержки.
+              Парсит регистры x86-64 и стек вызовов из лога, сопоставляет адреса
+              с таблицей символов objdump и находит точную строку исходника в момент падения.
+            </p>
+            <ul class="project-features">
+              <li>Извлечение дампов из лога с сохранением по дате/времени крэша</li>
+              <li>Дизассемблирование бинарника через objdump</li>
+              <li>Сопоставление адресов backtrace с таблицей символов</li>
+              <li>ASM-контекст с маркером точки падения</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Experience ────────────────────────────────── -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-title">cat experience.txt</span>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-header">
+          <div class="exp-company">Сбербанк</div>
+          <div class="exp-role">Тимлид группы сопровождения платформенных сервисов мониторинга инфраструктуры</div>
+          <div class="exp-period">20XX — настоящее время</div>
+        </div>
+
+        <div class="exp-duties">
+          <ul>
+            <li>Эксплуатация и сопровождение платформы мониторинга</li>
+            <li>Деплой и выпуск релизов (CI/CD + ручной процесс)</li>
+            <li>Разбор инцидентов, разграничение инфра / код, передача в разработку</li>
+            <li>Руководство командой из 8 человек</li>
+          </ul>
+        </div>
+
+        <div class="scale-block">
+          <div class="scale-comment">// масштаб инфраструктуры</div>
+          <div class="scale-grid">
+            <div class="scale-item"><span class="scale-value">~2 млн</span> метрик/сек</div>
+            <div class="scale-item"><span class="scale-value">~100</span> кластеров Zabbix</div>
+            <div class="scale-item"><span class="scale-value">500k+</span> объектов мониторинга</div>
+            <div class="scale-item"><span class="scale-value">1.8M+</span> VPS суммарно</div>
+            <div class="scale-item"><span class="scale-value">1500+</span> серверов платформы</div>
+            <div class="scale-item"><span class="scale-value">~120</span> проектов OpenShift</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Skills ────────────────────────────────────── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-title">cat skills.txt</span>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-label"># личный стек</div>
+        <div class="skills-tags">
+          <span class="tag highlight">Zabbix</span>
+          <span class="tag highlight">Python</span>
+          <span class="tag highlight">C</span>
+          <span class="tag highlight">PHP</span>
+          <span class="tag highlight">Linux</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-label"># стек команды</div>
+        <div class="skills-tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">ELK</span>
+          <span class="tag">OpenShift</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Linux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ───────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-line">artemyankovskiy.ru · 2026 · <a href="mailto:artemyankovskiy@gmail.com">artemyankovskiy@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
